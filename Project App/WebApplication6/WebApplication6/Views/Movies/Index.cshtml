@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplication6.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style ="font-style:italic; font-family:'Mesquite Std'; font-size:90px;">MOVIES DETAILS</h2>
+
+<div class="marketshop-banner">
+    <div class="row" style=" background-image:url(~/Upload/banner1.jpg)">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="position:relative; left:8%"><img src="~/Content/Image/Avatar.jpg" alt="Avatar" title="Avatar" /></div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="position:relative; left:12%"><img src="~/Content/image/Bahubali.jpg" alt="Bahubali" title="Bahubali" /></div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="position:relative; left:16%"><a href="#"><img src="~/Content/image/Janaan.jpg" alt="Janaan" title="Janaan" /></div>
+        <!--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><a href="#"><img src="~/Content/image/banner/sample-banner-4-300x300.jpg" alt="Sample Banner 4" title="Sample Banner 4" /></a></div>-->
+        <br />
+    </div>
+</div>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-condensed table-hover" style="font-family:Algerian; background-image:url(/Upload/MBC.jpg)">
+    <tr style="background-color:ButtonText">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Director)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_and_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie_Categary.Categary_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td width="20" height="50">
+                <img src="@Url.Content(item.Image)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_and_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_Categary.Categary_Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

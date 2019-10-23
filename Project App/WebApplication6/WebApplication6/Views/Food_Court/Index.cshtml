@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication6.Models.Food_Court>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="font-style:italic; font-family:'Mesquite Std'; font-size:90px;">FOOD COURT</h2>
+
+
+<div>
+    <img src="~/Upload/d-grid2.jpg" style="height:50%; width:50%;" /><img src="~/Upload/d2.jpg" style="height:50%; width:50%;" />       
+
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="font-family:Algerian; background-image:url(/Upload/FBC.jpg)">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Categary.Categary_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td width="20" height="50">
+            <img src="@Url.Content(item.Image)" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Categary.Categary_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+

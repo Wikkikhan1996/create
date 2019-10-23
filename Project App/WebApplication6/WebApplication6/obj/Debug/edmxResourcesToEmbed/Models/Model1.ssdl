@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MallManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="Booking_ID" />
+    </Key>
+    <Property Name="Booking_ID" Type="int" Nullable="false" />
+    <Property Name="Customer_ID" Type="int" Nullable="false" />
+    <Property Name="movi_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Cus_ID" />
+    </Key>
+    <Property Name="Cus_ID" Type="int" Nullable="false" />
+    <Property Name="Cus_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cus_Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cus_Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usser_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food_Categary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Categary_Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food_Court">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="C_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="C_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Publisher" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Director" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_and_Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movie_Categary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Categary_Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Seat_No" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar(max)" Nullable="false" />
+    <Property Name="C_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shops_Categary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Show">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Start_Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="End_Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Language" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Theatre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Ticket_ID" />
+    </Key>
+    <Property Name="Ticket_ID" Type="int" Nullable="false" />
+    <Property Name="Ticket_No" Type="int" Nullable="false" />
+    <Property Name="Th_ID" Type="int" Nullable="false" />
+    <Property Name="B_ID" Type="int" Nullable="false" />
+    <Property Name="Seat_ID" Type="int" Nullable="false" />
+    <Property Name="Seat_No" Type="int" Nullable="false" />
+    <Property Name="Show_Date" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Booking_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Cus_ID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Movie">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="movi_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Usser_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Food_Court_Food_Categary">
+    <End Role="Food_Categary" Type="Self.Food_Categary" Multiplicity="1" />
+    <End Role="Food_Court" Type="Self.Food_Court" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food_Categary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Food_Court">
+        <PropertyRef Name="C_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movie_Movie_Categary">
+    <End Role="Movie_Categary" Type="Self.Movie_Categary" Multiplicity="1" />
+    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie_Categary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Movie">
+        <PropertyRef Name="C_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shop_Shops_Categary">
+    <End Role="Shops_Categary" Type="Self.Shops_Categary" Multiplicity="1" />
+    <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shops_Categary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="C_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket1_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="Booking_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="B_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket1_Seat">
+    <End Role="Seat" Type="Self.Seat" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="Seat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MallManagementSystemModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food_Categary" EntityType="Self.Food_Categary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food_Court" EntityType="Self.Food_Court" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movie_Categary" EntityType="Self.Movie_Categary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shops_Categary" EntityType="Self.Shops_Categary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Show" EntityType="Self.Show" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Theatre" EntityType="Self.Theatre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Booking_Customer" Association="Self.FK_Booking_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Movie" Association="Self.FK_Booking_Movie">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_AspNetUsers" Association="Self.FK_Customer_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Food_Court_Food_Categary" Association="Self.FK_Food_Court_Food_Categary">
+      <End Role="Food_Categary" EntitySet="Food_Categary" />
+      <End Role="Food_Court" EntitySet="Food_Court" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movie_Movie_Categary" Association="Self.FK_Movie_Movie_Categary">
+      <End Role="Movie_Categary" EntitySet="Movie_Categary" />
+      <End Role="Movie" EntitySet="Movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shop_Shops_Categary" Association="Self.FK_Shop_Shops_Categary">
+      <End Role="Shops_Categary" EntitySet="Shops_Categary" />
+      <End Role="Shop" EntitySet="Shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket1_Booking" Association="Self.FK_Ticket1_Booking">
+      <End Role="Booking" EntitySet="Booking" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket1_Seat" Association="Self.FK_Ticket1_Seat">
+      <End Role="Seat" EntitySet="Seat" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
